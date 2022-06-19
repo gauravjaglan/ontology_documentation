@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+
+
+
+<style type="text/css" media="screen">
+
+
+
+	body {
+	    margin-left: 6em;
+	    margin-right: 12em;
+	    font-size: 14px;
+	    font-family: "Helvetica Neue", Helvetica;
+	}
+
+	h1, h2, h3, h4, h5, h6 { text-align: left }
+
+	h1, h2, h3, h4, h5 { color: #000000;}
+	h2 { font: 140% sans-serif }
+	h3 { font: 120% sans-serif }
+	h4 { font: bold 100% sans-serif }
+	h5 { font: italic 100% sans-serif }
+	h6 { font: small-caps 100% sans-serif }
+
+	.margintop {
+		 margin-top: 40px;
+	}
+
+
+    #container {
+        /*max-width: 400px;*/
+        height: 600px;
+        margin: auto;
+    }
+
+</style>
+
+
+</head>
+
+
+<body>
+
+	
+
+	
+
+	<h1 class="title">Ontology:&nbsp;<a href="javascript:showpanel('ontoinfo');"></a></h1>
+	<h3></h3>
+
+	<p><small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 2nd April 2021 19:50</small></p>
+
+
+
+	<hr>
+
+
+
+    <div id="container"></div>
+
+    
+
+    <script type="text/javascript" src="static/libs/sigma/sigma.min.js"></script>
+
+    <script type="text/javascript" src="static/libs/sigma/plugins/sigma.parsers.json.min.js"></script>
+    <script type="text/javascript" src="static/libs/sigma/plugins/sigma.layout.forceAtlas2.min.js"></script>
+
+
+
+
+	<hr>
+	<small class="credits">Documentation automatically generated with <a href="https://github.com/lambdamusic/Ontospy" target="_blank" class="greylink">Ontospy</a> on 2nd April 2021 19:50</small>
+
+
+
+
+
+   <script>
+    // these are just some preliminary settings
+    var g = {
+        nodes: [],
+        edges: []
+    };
+
+    var DATA_LOCAL = {"nodes": [{"id": "owlthing", "label": "owl:Thing", "x": 0.7766151750069342, "y": 0.9455191912606261, "color": "grey", "size": 5}, {"id": 2, "label": "GOSTAR Activity class", "x": 0.9803059076620991, "y": 0.0638650513797524, "color": "#C4F5FF", "size": 1}, {"id": 3, "label": "GOSTAR Antibody class", "x": 0.6347774972772746, "y": 0.731116122408052, "color": "#C4F5FF", "size": 1}, {"id": 4, "label": "GOSTAR Assay class", "x": 0.9919493982012818, "y": 0.16246399223781538, "color": "#C4F5FF", "size": 1}, {"id": 5, "label": "GOSTAR Assay component class", "x": 0.5063258036277184, "y": 0.125684192815412, "color": "#C8FFB3", "size": 7}, {"id": 6, "label": "GOSTAR Assay Result class", "x": 0.5208475691460424, "y": 0.8992308848900712, "color": "#C4F5FF", "size": 1}, {"id": 7, "label": "GOSTAR Result Type class", "x": 0.9793989722211651, "y": 0.2246011782144931, "color": "#C4F5FF", "size": 1}, {"id": 8, "label": "GOSTAR Biological Substance class", "x": 0.5940155646487159, "y": 0.9706780377914853, "color": "#C8FFB3", "size": 3}, {"id": 9, "label": "GOSTAR Buffer class", "x": 0.6850431608272053, "y": 0.2723754842547823, "color": "#C4F5FF", "size": 1}, {"id": 10, "label": "GOSTAR CellLine class", "x": 0.012952900189720729, "y": 0.5993799191739174, "color": "#C4F5FF", "size": 1}, {"id": 11, "label": "GOSTAR Cells class", "x": 0.2755173321624037, "y": 0.7449062301706507, "color": "#C4F5FF", "size": 1}, {"id": 12, "label": "GOSTAR Chemical class", "x": 0.7226301636991144, "y": 0.5534996425000709, "color": "#C4F5FF", "size": 1}, {"id": 13, "label": "GOSTAR Chimeric Protein class", "x": 0.1433390797616404, "y": 0.01776043423020135, "color": "#C4F5FF", "size": 1}, {"id": 14, "label": "GOSTAR ClinicalPhase class", "x": 0.4223200571812805, "y": 0.5044881096752363, "color": "#C4F5FF", "size": 1}, {"id": 15, "label": "GOSTAR ClinicalStudy class", "x": 0.2811536584741462, "y": 0.999676461980989, "color": "#C4F5FF", "size": 1}, {"id": 16, "label": "GOSTAR CoAdministered class", "x": 0.4525052534590649, "y": 0.3009979224087179, "color": "#C4F5FF", "size": 1}, {"id": 17, "label": "GOSTAR DBCrossReference class", "x": 0.07547001432245293, "y": 0.9265807785173718, "color": "#C8FFB3", "size": 8}, {"id": 18, "label": "GOSTAR DNA class", "x": 0.19478547788240386, "y": 0.13506076720272187, "color": "#C4F5FF", "size": 1}, {"id": 19, "label": "GOSTAR DNA target class", "x": 0.03794528249261808, "y": 0.4845446471382999, "color": "#C4F5FF", "size": 1}, {"id": 20, "label": "GOSTAR DOI Cross Reference", "x": 0.1915811749995091, "y": 0.5540968097143678, "color": "#C4F5FF", "size": 1}, {"id": 21, "label": "GOSTAR Document class", "x": 0.9644644866822678, "y": 0.5737671045611143, "color": "#C8FFB3", "size": 3}, {"id": 22, "label": "GOSTAR Document Cross Reference", "x": 0.9878301776373998, "y": 0.5035154915744429, "color": "#C8FFB3", "size": 2}, {"id": 23, "label": "GOSTAR DrugInteraction class", "x": 0.5921402454761779, "y": 0.11368394198247722, "color": "#C4F5FF", "size": 1}, {"id": 24, "label": "GOSTAR base class", "x": 0.6721107401838208, "y": 0.7262769405166539, "color": "#FFD8DD", "size": 59}, {"id": 25, "label": "GOSTAR Entrez gene Cross Reference", "x": 0.7361856012626511, "y": 0.8649984087410825, "color": "#C4F5FF", "size": 1}, {"id": 26, "label": "GOSTAR In Presence Of class", "x": 0.1721341182362035, "y": 0.53373048151843, "color": "#C4F5FF", "size": 1}, {"id": 27, "label": "GOSTAR Incubation Time class", "x": 0.21376706997762285, "y": 0.2916296468729014, "color": "#C4F5FF", "size": 1}, {"id": 28, "label": "GOSTAR Indication class", "x": 0.9465192544312702, "y": 0.18900645975712604, "color": "#C4F5FF", "size": 1}, {"id": 29, "label": "GOSTAR Journal Document class", "x": 0.8126998876336391, "y": 0.24654927782201963, "color": "#C4F5FF", "size": 1}, {"id": 30, "label": "GOSTAR Lower Limit class", "x": 0.267551230185997, "y": 0.3537296635729591, "color": "#C4F5FF", "size": 1}, {"id": 31, "label": "GOSTAR Mechanism class", "x": 0.15060233832061964, "y": 0.2754645618515774, "color": "#C4F5FF", "size": 1}, {"id": 32, "label": "GOSTAR Metabolite class", "x": 0.702214735568837, "y": 0.24512273260924256, "color": "#C4F5FF", "size": 1}, {"id": 33, "label": "GOSTAR NucleicAcid target class", "x": 0.1607610082883203, "y": 0.16462478809495384, "color": "#C8FFB3", "size": 2}, {"id": 34, "label": "GOSTAR Organ class", "x": 0.07461192793509641, "y": 0.49466928372612673, "color": "#C4F5FF", "size": 1}, {"id": 35, "label": "GOSTAR Other document class", "x": 0.7041581667022401, "y": 0.2213426830123959, "color": "#C4F5FF", "size": 1}, {"id": 36, "label": "GOSTAR PDB Cross Reference", "x": 0.3045197436071261, "y": 0.8347861920895264, "color": "#C4F5FF", "size": 1}, {"id": 37, "label": "GOSTAR Patent class", "x": 0.3842298714056317, "y": 0.39285111933319794, "color": "#C4F5FF", "size": 1}, {"id": 38, "label": "GOSTAR ProteinClassification class", "x": 0.15719625039277296, "y": 0.17611579222819362, "color": "#C4F5FF", "size": 1}, {"id": 39, "label": "GOSTAR Protein Complex class", "x": 0.9150068514729442, "y": 0.7481865178528647, "color": "#C4F5FF", "size": 1}, {"id": 40, "label": "GOSTAR Protein Cross Reference", "x": 0.6597962656543938, "y": 0.29979438206337716, "color": "#C8FFB3", "size": 3}, {"id": 41, "label": "GOSTAR Protein Target class", "x": 0.6827611901462803, "y": 0.9762046669547264, "color": "#C8FFB3", "size": 3}, {"id": 42, "label": "GOSTAR Pubmed Cross Reference", "x": 0.35530745179110035, "y": 0.45620389751198376, "color": "#C4F5FF", "size": 1}, {"id": 43, "label": "GOSTAR RNA class", "x": 0.09515576000933812, "y": 0.6671211696221109, "color": "#C4F5FF", "size": 1}, {"id": 44, "label": "GOSTAR RNA target class", "x": 0.36582409576305475, "y": 0.47388077148627206, "color": "#C4F5FF", "size": 1}, {"id": 45, "label": "GOSTAR Radioligand class", "x": 0.7459867370365295, "y": 0.3568136524859118, "color": "#C4F5FF", "size": 1}, {"id": 46, "label": "GOSTAR Unit class", "x": 0.7702812880560778, "y": 0.5541221965253529, "color": "#C4F5FF", "size": 1}, {"id": 47, "label": "GOSTAR ValueRelation class", "x": 0.2576130134415081, "y": 0.6001879916702398, "color": "#C4F5FF", "size": 1}, {"id": 48, "label": "GOSTAR Single protein class", "x": 0.13272819849485795, "y": 0.44554633969370416, "color": "#C4F5FF", "size": 1}, {"id": 49, "label": "GOSTAR SmallMolecule class", "x": 0.7344606031663599, "y": 0.07024268009529078, "color": "#C8FFB3", "size": 2}, {"id": 50, "label": "GOSTAR Species class", "x": 0.2817449255405886, "y": 0.20624371169668498, "color": "#C4F5FF", "size": 1}, {"id": 51, "label": "GOSTAR Structure class", "x": 0.43291559929198464, "y": 0.4558671434162106, "color": "#C4F5FF", "size": 1}, {"id": 52, "label": "GOSTAR Substance class", "x": 0.9604096090057331, "y": 0.49672818101924177, "color": "#C8FFB3", "size": 8}, {"id": 53, "label": "GOSTAR Substrate class", "x": 0.3357022710565444, "y": 0.38404548439027575, "color": "#C4F5FF", "size": 1}, {"id": 54, "label": "GOSTAR Target class", "x": 0.22638619391906378, "y": 0.2684073744352743, "color": "#C8FFB3", "size": 7}, {"id": 55, "label": "GOSTAR TargetComponent class", "x": 0.7543211103358336, "y": 0.3063836525217727, "color": "#C4F5FF", "size": 1}, {"id": 56, "label": "GOSTAR Target Cross Reference", "x": 0.9249347923893193, "y": 0.06508684080253524, "color": "#C8FFB3", "size": 4}, {"id": 57, "label": "GOSTAR Temperature class", "x": 0.013762981925986462, "y": 0.9471558428693639, "color": "#C4F5FF", "size": 1}, {"id": 58, "label": "GOSTAR Tissue class", "x": 0.08429480286416358, "y": 0.9665198809811993, "color": "#C4F5FF", "size": 1}, {"id": 59, "label": "GOSTAR Unclassified Substance class", "x": 0.8955847547172247, "y": 0.5682283752303808, "color": "#C4F5FF", "size": 1}, {"id": 60, "label": "GOSTAR Uniprot Cross Reference", "x": 0.40146557358924395, "y": 0.7490780790573287, "color": "#C4F5FF", "size": 1}, {"id": 61, "label": "GOSTAR Upper Limit class", "x": 0.3990772626223602, "y": 0.6853757007353092, "color": "#C4F5FF", "size": 1}], "edges": [{"id": "5-9", "source": 5, "target": 9, "color": "#ccc", "hover_color": "#000"}, {"id": "5-16", "source": 5, "target": 16, "color": "#ccc", "hover_color": "#000"}, {"id": "5-26", "source": 5, "target": 26, "color": "#ccc", "hover_color": "#000"}, {"id": "5-27", "source": 5, "target": 27, "color": "#ccc", "hover_color": "#000"}, {"id": "5-45", "source": 5, "target": 45, "color": "#ccc", "hover_color": "#000"}, {"id": "5-53", "source": 5, "target": 53, "color": "#ccc", "hover_color": "#000"}, {"id": "5-57", "source": 5, "target": 57, "color": "#ccc", "hover_color": "#000"}, {"id": "8-3", "source": 8, "target": 3, "color": "#ccc", "hover_color": "#000"}, {"id": "8-18", "source": 8, "target": 18, "color": "#ccc", "hover_color": "#000"}, {"id": "8-43", "source": 8, "target": 43, "color": "#ccc", "hover_color": "#000"}, {"id": "17-22", "source": 17, "target": 22, "color": "#ccc", "hover_color": "#000"}, {"id": "17-56", "source": 17, "target": 56, "color": "#ccc", "hover_color": "#000"}, {"id": "21-29", "source": 21, "target": 29, "color": "#ccc", "hover_color": "#000"}, {"id": "21-35", "source": 21, "target": 35, "color": "#ccc", "hover_color": "#000"}, {"id": "21-37", "source": 21, "target": 37, "color": "#ccc", "hover_color": "#000"}, {"id": "22-20", "source": 22, "target": 20, "color": "#ccc", "hover_color": "#000"}, {"id": "22-42", "source": 22, "target": 42, "color": "#ccc", "hover_color": "#000"}, {"id": "24-owlthing", "source": "owlthing", "target": 24, "color": "#ccc", "hover_color": "#000"}, {"id": "24-2", "source": 24, "target": 2, "color": "#ccc", "hover_color": "#000"}, {"id": "24-4", "source": 24, "target": 4, "color": "#ccc", "hover_color": "#000"}, {"id": "24-5", "source": 24, "target": 5, "color": "#ccc", "hover_color": "#000"}, {"id": "24-6", "source": 24, "target": 6, "color": "#ccc", "hover_color": "#000"}, {"id": "24-7", "source": 24, "target": 7, "color": "#ccc", "hover_color": "#000"}, {"id": "24-10", "source": 24, "target": 10, "color": "#ccc", "hover_color": "#000"}, {"id": "24-11", "source": 24, "target": 11, "color": "#ccc", "hover_color": "#000"}, {"id": "24-14", "source": 24, "target": 14, "color": "#ccc", "hover_color": "#000"}, {"id": "24-15", "source": 24, "target": 15, "color": "#ccc", "hover_color": "#000"}, {"id": "24-17", "source": 24, "target": 17, "color": "#ccc", "hover_color": "#000"}, {"id": "24-21", "source": 24, "target": 21, "color": "#ccc", "hover_color": "#000"}, {"id": "24-23", "source": 24, "target": 23, "color": "#ccc", "hover_color": "#000"}, {"id": "24-28", "source": 24, "target": 28, "color": "#ccc", "hover_color": "#000"}, {"id": "24-30", "source": 24, "target": 30, "color": "#ccc", "hover_color": "#000"}, {"id": "24-31", "source": 24, "target": 31, "color": "#ccc", "hover_color": "#000"}, {"id": "24-32", "source": 24, "target": 32, "color": "#ccc", "hover_color": "#000"}, {"id": "24-34", "source": 24, "target": 34, "color": "#ccc", "hover_color": "#000"}, {"id": "24-38", "source": 24, "target": 38, "color": "#ccc", "hover_color": "#000"}, {"id": "24-46", "source": 24, "target": 46, "color": "#ccc", "hover_color": "#000"}, {"id": "24-47", "source": 24, "target": 47, "color": "#ccc", "hover_color": "#000"}, {"id": "24-50", "source": 24, "target": 50, "color": "#ccc", "hover_color": "#000"}, {"id": "24-52", "source": 24, "target": 52, "color": "#ccc", "hover_color": "#000"}, {"id": "24-54", "source": 24, "target": 54, "color": "#ccc", "hover_color": "#000"}, {"id": "24-55", "source": 24, "target": 55, "color": "#ccc", "hover_color": "#000"}, {"id": "24-58", "source": 24, "target": 58, "color": "#ccc", "hover_color": "#000"}, {"id": "24-61", "source": 24, "target": 61, "color": "#ccc", "hover_color": "#000"}, {"id": "33-19", "source": 33, "target": 19, "color": "#ccc", "hover_color": "#000"}, {"id": "33-44", "source": 33, "target": 44, "color": "#ccc", "hover_color": "#000"}, {"id": "40-25", "source": 40, "target": 25, "color": "#ccc", "hover_color": "#000"}, {"id": "40-36", "source": 40, "target": 36, "color": "#ccc", "hover_color": "#000"}, {"id": "40-60", "source": 40, "target": 60, "color": "#ccc", "hover_color": "#000"}, {"id": "41-13", "source": 41, "target": 13, "color": "#ccc", "hover_color": "#000"}, {"id": "41-39", "source": 41, "target": 39, "color": "#ccc", "hover_color": "#000"}, {"id": "41-48", "source": 41, "target": 48, "color": "#ccc", "hover_color": "#000"}, {"id": "49-12", "source": 49, "target": 12, "color": "#ccc", "hover_color": "#000"}, {"id": "49-51", "source": 49, "target": 51, "color": "#ccc", "hover_color": "#000"}, {"id": "52-8", "source": 52, "target": 8, "color": "#ccc", "hover_color": "#000"}, {"id": "52-49", "source": 52, "target": 49, "color": "#ccc", "hover_color": "#000"}, {"id": "52-59", "source": 52, "target": 59, "color": "#ccc", "hover_color": "#000"}, {"id": "54-33", "source": 54, "target": 33, "color": "#ccc", "hover_color": "#000"}, {"id": "54-41", "source": 54, "target": 41, "color": "#ccc", "hover_color": "#000"}, {"id": "56-40", "source": 56, "target": 40, "color": "#ccc", "hover_color": "#000"}]};
+
+
+    // Create new Sigma instance in graph-container div (use your div name here)
+    s = new sigma({
+        graph: DATA_LOCAL,
+        container: 'container',
+        renderer: {
+            container: document.getElementById('container'),
+            type: 'canvas'
+        },
+        settings: {
+            doubleClickEnabled: false,
+            minNodeSize: 1,
+            maxNodeSize: 30,
+            enableEdgeHovering: true,
+            edgeHoverColor: 'edge',
+            defaultEdgeHoverColor: '#000',
+            edgeHoverSizeRatio: 1,
+            edgeHoverExtremities: true
+          }
+    });
+
+    // ? this runs the force atlas, but the rendering is not smooth!
+
+    s.refresh();
+    s.startForceAtlas2();
+
+
+    </script>
+
+
+
+</body>
+</html>
