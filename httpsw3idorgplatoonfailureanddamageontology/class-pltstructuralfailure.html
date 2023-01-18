@@ -1,0 +1,1320 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/libs/img/favicon.ico">
+
+	
+		<title>Ontospy > https://w3id.org/platoon/FailureAndDamageOntology</title>
+	
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="static/libs/bootstrap-3_3_7-dist/css/bootstrap.min.css" rel="stylesheet">  -->
+    <!-- Bootswatch:  -->
+    <!-- cerulean  | cyborg |  flatly |  lumen |  sandstone |   spacelab  |  yeti | cosmo |  darkly |  paper | simplex | superhero |  journal | readable  |   slate |  united -->
+    <link href="static/libs/bootswatch3_2/cerulean/bootstrap.min.css" rel="stylesheet">
+    <link href="static/custom/css/simple-sidebar.css" rel="stylesheet">
+    <link href="static/custom/css/familytree.css" rel="stylesheet">
+    <link href="static/custom/css/tabletree.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/libs/bootstrap-3_3_7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/custom/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+
+  .lead-plus {font-size: 26.5px;}
+  .label-xs {font-size: 10px;}
+  .label-dark {background: #2c3e50; color: white; padding: 1px;}
+  .margin50 {margin-top: 50px; margin-bottom: 50px;}
+
+  .namespaces {background: #ced2d6; width: 100%;}
+
+
+  /*so that the d3plus tooltip panel doesnt cover the top banner*/
+  .navbar {z-index: 3000;}
+
+
+  .panel-body dt {margin-top: 5px;}
+  .page-header  {margin-top: 30px;}
+  #wrapper {margin-top: 50px;}
+
+  .implementation-panel {
+    overflow: auto;
+    /*max-height: 500px;*/
+  }
+
+  tr.table-classproperties {
+      /*background: #f5f5f5;*/
+  }
+  tr.table-classproperties th {
+      font-size: 80%;
+      font-weight: normal;
+  }
+
+
+  tr.table-inheritanceinfo {
+      /*background: #f5f5f5;*/
+      text-align: left;
+  }
+
+  tr.table-inheritanceinfo th {
+      font-size: 90%;
+      font-weight: normal;
+  }
+
+
+  .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .breadcrumb a {
+      text-transform: capitalize;
+  }
+  .breadcrumb li {
+      text-transform: none;
+      /*so to catch the uri @todo improve*/
+  }
+
+
+  .fromclass_link {
+    /*color: white;
+    text-decoration: underline;*/
+    /*background: #1c1e52;*/
+    color: inherit;
+    /*padding: 1px;*/
+  }
+
+		.mythumbnail {
+			display: block;
+			padding: 13px;
+			margin-bottom: 30px;
+			line-height: 13.428571;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 30px;
+		}
+
+		.mythumbnail:hover {
+			background: lightyellow;
+			text-decoration: none;
+		}
+
+
+		.img-container{
+		    height:100%;
+			overflow: hidden;
+		    max-height:200px;
+			padding: 10px;
+/*			margin: 20px 0px 20px 0px;*/
+			border: 1em #EAE5E5 solid;
+		}
+
+		.img-container:hover {
+			border: 1px grey solid;
+		}
+
+		img{
+/*		    height:100% !important;*/
+		}
+
+
+		.icon-xxs {
+			font-size: 15px;
+		}
+
+
+    /* dropdown open on hover */
+
+    @media (min-width: 979px) {
+      ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+      }
+    }
+
+
+
+/*pygments css*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/*overloading this class from pygments*/
+.highlight {
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" id="menu-toggle" title="Toggle sidebar">
+        
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html"><code style="font-size: 115%;">https://w3id.org/platoon/FailureAndDamageOntology</code></a></li>
+        
+
+       
+
+
+        <li  ><a href="entities-az.html">Entities A-Z</a></li>
+        
+        <li ><a href="entities-tree-classes.html">Classes</a></li>
+        
+        
+        <li ><a href="entities-tree-properties.html">Properties</a></li>
+        
+        
+        
+        <li  ><a href="statistics.html">Statistics</a></li>
+
+
+
+
+
+      </ul>
+      
+    </div><!--/.nav-collapse -->
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper" class="toggled">
+
+
+    
+
+    
+        
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+
+        <li>
+          <input style="margin-top: 30px;  margin-bottom: 20px;" type="text" id="search-input-sidebar" name="" value="" placeholder="Type to search">
+        </li>
+
+        
+          <li class="-second-level" id="sd_classes"><a href="entities-tree-classes.html">Classes (69)</a>
+          </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_662"><a  href="class-cimfailureevent.html">cim:FailureEvent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_665"><a  href="class-foafperson.html">foaf:Person</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_666"><a  href="class-pltalert.html">plt:Alert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_667"><a  href="class-pltcableloosening.html">plt:CableLoosening</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_668"><a  href="class-pltchangeoffailuremodeparameters.html">plt:ChangeOfFailureModeParameters</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_669"><a  href="class-pltchanginginresistorvalue.html">plt:ChangingInResistorValue</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_670"><a  href="class-pltdamage.html">plt:Damage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_671"><a  href="class-pltdegradationconstantdamage.html">plt:DegradationConstantDamage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_672"><a  href="class-pltdegratdationalert.html">plt:DegratdationAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_673"><a  href="class-pltdeviceaddingmaintenance.html">plt:DeviceAddingMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_674"><a  href="class-pltefficiencydegradation.html">plt:EfficiencyDegradation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_675"><a  href="class-pltelectricityloaddeviationalert.html">plt:ElectricityLoadDeviationAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_676"><a  href="class-pltfailurealert.html">plt:FailureAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_677"><a  href="class-pltfailurecause.html">plt:FailureCause</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_678"><a  href="class-pltfailureevent.html">plt:FailureEvent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_679"><a  href="class-pltfailureinpiping.html">plt:FailureInPiping</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_680"><a  href="class-pltfailuremode.html">plt:FailureMode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_681"><a  href="class-pltfaultstate.html">plt:FaultState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_682"><a  href="class-pltforecastofnontechnicallossalert.html">plt:ForecastOfNonTechnicalLossAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_683"><a  href="class-pltforecasterofnontechnicallossalert.html">plt:ForecasterOfNonTechnicalLossAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_684"><a  href="class-pltforecastingofnontechnicallossalert.html">plt:ForecastingOfNonTechnicalLossAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_685"><a  href="class-plthightemperaturefailure.html">plt:HighTemperatureFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_686"><a  href="class-pltimbalancefailure.html">plt:ImbalanceFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_687"><a  href="class-pltinconsistencyofmeasurementfailure.html">plt:InconsistencyOfMeasurementFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_688"><a  href="class-pltinterphaseshortcircuit.html">plt:InterPhaseShortCircuit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_689"><a  href="class-pltlockingorbadturningofthebearing.html">plt:LockingOrBadTurningOfTheBearing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_690"><a  href="class-pltloosenessfailure.html">plt:LoosenessFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_691"><a  href="class-pltlossofmeasurementfailure.html">plt:LossOfMeasurementFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_692"><a  href="class-pltmagneticorefailure.html">plt:MagnetiCoreFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_693"><a  href="class-pltmagneticcorefailure.html">plt:MagneticCoreFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_694"><a  href="class-pltmaintenance.html">plt:Maintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_695"><a  href="class-pltmaintenancecause.html">plt:MaintenanceCause</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_696"><a  href="class-pltmechanicalcause.html">plt:MechanicalCause</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_697"><a  href="class-pltmonitoringfailure.html">plt:MonitoringFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_698"><a  href="class-pltnoswitchstayinginconnectedconverted.html">plt:NoSwitchStayingInConnectedConverted</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_699"><a  href="class-pltnontechnicallossalert.html">plt:NonTechnicalLossAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_700"><a  href="class-pltnontechnicallossevent.html">plt:NonTechnicalLossEvent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_701"><a  href="class-pltoilovertemperaturefailure.html">plt:OilOverTemperatureFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_702"><a  href="class-pltopencircuit.html">plt:OpenCircuit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_703"><a  href="class-pltoutofrange.html">plt:OutOfRange</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_704"><a  href="class-pltoverheatingfailure.html">plt:OverheatingFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_705"><a  href="class-pltpartialslotdischarges.html">plt:PartialSlotDischarges</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_706"><a  href="class-pltrecommendation.html">plt:Recommendation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_707"><a  href="class-pltrepairmaintenance.html">plt:RepairMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_708"><a  href="class-pltreplacementmaintenance.html">plt:ReplacementMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_709"><a  href="class-pltresistorinopencircuit.html">plt:ResistorInOpenCircuit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_710"><a  href="class-pltresistorinshortcircuit.html">plt:ResistorInShortCircuit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_711"><a  href="class-pltsafetymode.html">plt:SafetyMode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_712"><a  href="class-pltscheduledevent.html">plt:ScheduledEvent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_713"><a  href="class-pltseveritylevelevaluation.html">plt:SeverityLevelEvaluation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_714"><a  href="class-pltseveritylevelproperty.html">plt:SeverityLevelProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_715"><a  href="class-pltshortcircuit.html">plt:ShortCircuit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_716"><a  href="class-pltshortcircuitbetweencoils.html">plt:ShortCircuitBetweenCoils</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_717"><a  href="class-pltshortcircuitincoilends.html">plt:ShortCircuitInCoilEnds</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_718"><a  href="class-pltshortcircuittoground.html">plt:ShortCircuitToGround</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_719"><a class="active" href="class-pltstructuralfailure.html">plt:StructuralFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_720"><a  href="class-pltswitchstayingwithcrowbarin.html">plt:SwitchStayingWithCrowbarIn</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_721"><a  href="class-pltunscheduledevent.html">plt:UnScheduledEvent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_722"><a  href="class-pltunderperformancefailure.html">plt:UnderperformanceFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_723"><a  href="class-pltweathercause.html">plt:WeatherCause</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_724"><a  href="class-sareffeatureofinterest.html">saref:FeatureOfInterest</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_725"><a  href="class-seasevaluation.html">seas:Evaluation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_726"><a  href="class-seasfeatureofinterest.html">seas:FeatureOfInterest</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_727"><a  href="class-seasforecast.html">seas:Forecast</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_728"><a  href="class-seasforecaster.html">seas:Forecaster</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_729"><a  href="class-seasforecasting.html">seas:Forecasting</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_730"><a  href="class-seasproperty.html">seas:Property</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_664"><a  href="class-sgstakeholdersprosumer.html">sgstakeholders:Prosumer</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_663"><a  href="class-voafvocabulary.html">voaf:Vocabulary</a></li>
+          
+        
+
+        
+            <li class="-second-level" id="sd_properties"><a  href="entities-tree-properties.html">Properties (29)</a>
+            </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_731"><a   href="prop-dctermscontributor.html">dcterms:contributor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_732"><a   href="prop-dctermscreator.html">dcterms:creator</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_733"><a   href="prop-dctermsdescription.html">dcterms:description</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_734"><a   href="prop-dctermsissued.html">dcterms:issued</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_735"><a   href="prop-dctermslicense.html">dcterms:license</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_736"><a   href="prop-dctermsmodified.html">dcterms:modified</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_737"><a   href="prop-dctermstitle.html">dcterms:title</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_741"><a   href="prop-foafname.html">foaf:name</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_748"><a   href="prop-pltaffects.html">plt:affects</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_749"><a   href="prop-pltbears.html">plt:bears</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_750"><a   href="prop-pltcauses.html">plt:causes</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_742"><a   href="prop-pltconcerns.html">plt:concerns</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_751"><a   href="prop-plthasdamage.html">plt:hasDamage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_743"><a   href="prop-plthasfailure.html">plt:hasFailure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_752"><a   href="prop-plthasfailuremode.html">plt:hasFailureMode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_746"><a   href="prop-plthasforecastofnontechnicallossalert.html">plt:hasForecastOfNonTechnicalLossAlert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_753"><a   href="prop-plthasfraudcandidate.html">plt:hasFraudCandidate</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_744"><a   href="prop-plthasmaintenance.html">plt:hasMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_745"><a   href="prop-plthasmaintenanceadvice.html">plt:hasMaintenanceAdvice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_754"><a   href="prop-plthasscheduledmaintenance.html">plt:hasScheduledMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_747"><a   href="prop-plthasseveritylevel.html">plt:hasSeverityLevel</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_755"><a   href="prop-pltisdamageof.html">plt:isDamageOf</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_756"><a   href="prop-pltisdueto.html">plt:isDueTo</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_757"><a   href="prop-pltleadsto.html">plt:leadsTo</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_758"><a   href="prop-pltrelatedto.html">plt:relatedTo</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_759"><a   href="prop-sarefisabout.html">saref:isAbout</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_738"><a   href="prop-vannpreferrednamespaceprefix.html">vann:preferredNamespacePrefix</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_739"><a   href="prop-vannpreferrednamespaceuri.html">vann:preferredNamespaceUri</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_740"><a   href="prop-vsterm_status.html">vs:term_status</a></li>
+          
+
+        
+
+        
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </ul>
+
+</div>
+
+
+<!-- /#sidebar-wrapper -->
+
+    
+
+
+
+
+    <!-- Begin page content -->
+    <div class="container" id="page-content-wrapper">
+
+      
+
+	
+
+
+
+
+
+
+        
+
+
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ol class="breadcrumb">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+          <a href="entities-az.html">Entities</a>
+    </li>
+    <li>
+          <a href="entities-tree-classes.html">Classes</a>
+    </li>
+      <li class="active">
+            https://w3id.org/platoon/StructuralFailure
+        </li>
+  </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+            <h1>
+
+                plt:StructuralFailure
+                
+                    <small class="label label-info label-xs">leaf node</small>
+                  
+
+            </h1>
+            <hr>
+
+
+
+            <div class="tree-container">
+            <div class="tree">
+                <ul>
+                    
+
+                        
+
+                        <li>
+
+                          <a href="class-pltfailuremode.html" title="'Failure Mode' - The failure modes means the ways, or modes, in which something might fail">plt:FailureMode</a>
+
+                          <ul>
+
+                            <li><a style="font-weight: bold;" title="'Structural Failure' - Structural failure refers to the loss of structural integrity. source : wikipedia">plt:StructuralFailure</a>
+                            
+                              </li>
+
+                          </ul>
+
+                          </li>
+                        
+
+                    
+
+                </ul>
+            </div>
+            </div>
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">URI</h3>
+            </div>
+            <div class="panel-body">
+
+                <code>https://w3id.org/platoon/StructuralFailure</code>
+            </div>
+          </div>
+           </div></div>
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Label</h3>
+            </div>
+            <div class="panel-body">
+
+                Structural Failure
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Description</h3>
+            </div>
+            <div class="panel-body">
+
+                Structural failure refers to the loss of structural integrity. source : wikipedia
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Superclasses (1)</h3>
+            </div>
+            <div class="panel-body">
+
+            
+                    <li><a href="class-pltfailuremode.html" title="https://w3id.org/platoon/FailureMode">plt:FailureMode</a></li>
+            
+
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+          
+
+
+
+         
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Usage</h3>
+            </div>
+            <div class="panel-body" style="overflow: auto;">
+
+                <p>Instances of plt:StructuralFailure can have the following properties:</p>
+            </div>
+             <table class="table table-bordered" style="overflow: auto;">
+
+                <tr class="table-classproperties">
+                    <th>PROPERTY</th><th>TYPE</th><th>DESCRIPTION</th><th>RANGE</th>
+                </tr>
+
+                
+
+                    
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="plt:FailureMode" href="class-pltfailuremode.html" class="fromclass_link">plt:FailureMode</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:isDueTo" href="prop-pltisdueto.html">plt:isDueTo</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links the failure mode to its failure cause.</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="plt:FailureCause" href="class-pltfailurecause.html" class="rdfclass">plt:FailureCause</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="owl:Thing" href="class-owlthing.html" class="fromclass_link">owl:Thing</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:contributor" href="prop-dctermscontributor.html">dcterms:contributor</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:creator" href="prop-dctermscreator.html">dcterms:creator</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:description" href="prop-dctermsdescription.html">dcterms:description</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:issued" href="prop-dctermsissued.html">dcterms:issued</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:license" href="prop-dctermslicense.html">dcterms:license</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:modified" href="prop-dctermsmodified.html">dcterms:modified</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="dcterms:title" href="prop-dctermstitle.html">dcterms:title</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="foaf:name" href="prop-foafname.html">foaf:name</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:DatatypeProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:affects" href="prop-pltaffects.html">plt:affects</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links a pheonomen to its affected feature of interest .</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="seas:FeatureOfInterest" href="class-seasfeatureofinterest.html" class="rdfclass">seas:FeatureOfInterest</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:causes" href="prop-pltcauses.html">plt:causes</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links a pheonomen to its consequence pheonomen.</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:hasFailure" href="prop-plthasfailure.html">plt:hasFailure</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:DatatypeProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links the entity, such as HVAC, to its failure</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="plt:FailureEvent" href="class-pltfailureevent.html" class="rdfclass">plt:FailureEvent</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:leadsTo" href="prop-pltleadsto.html">plt:leadsTo</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links a  pheonomen  to its led pheonomen.</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="plt:relatedTo" href="prop-pltrelatedto.html">plt:relatedTo</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Links a  pheonomen  to its related pheonomen.</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="saref:isAbout" href="prop-sarefisabout.html">saref:isAbout</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:ObjectProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="vann:preferredNamespacePrefix" href="prop-vannpreferrednamespaceprefix.html">vann:preferredNamespacePrefix</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="vann:preferredNamespaceUri" href="prop-vannpreferrednamespaceuri.html">vann:preferredNamespaceUri</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="vs:term_status" href="prop-vsterm_status.html">vs:term_status</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>owl:AnnotationProperty<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+            </table>
+
+
+          </div>
+           </div></div>
+
+        
+
+
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Implementation</h3>
+            </div>
+            <div class="panel-body implementation-panel">
+
+                
+
+                    <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">plt:</span><span class="w"> </span><span class="nv">&lt;https://w3id.org/platoon/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">vs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+
+<span class="nn">plt:</span><span class="nt">StructuralFailure</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Structural Failure&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">comment</span><span class="w"> </span><span class="s">&quot;Structural failure refers to the loss of structural integrity. source : wikipedia&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">isDefinedBy</span><span class="w"> </span><span class="nn">plt:</span><span class="nt">FailureAndDamageOntology</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">plt:</span><span class="nt">FailureMode</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">vs:</span><span class="nt">term_status</span><span class="w"> </span><span class="s">&quot;testing&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+
+                
+            </div>
+          </div>
+           </div></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+	</div><!-- /#page-content-wrapper -->
+
+
+  
+
+
+
+  
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+    
+      <p class="text-muted">Documentation automatically generated on 19th January 2023 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v1.9.8.3)</p>
+
+    
+    </div>
+  </footer>
+
+
+</div><!-- /#wrapper -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="static/libs/jquery/1_12_4/jquery.min.js"></script>
+<script src="static/libs/bootstrap-3_3_7-dist/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="static/libs/bootstrap-3_3_7-dist/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="static/libs/chartjs-2_4_0/chart.bundle.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+$('#search-input-sidebar').keyup(function() {
+
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+  // var $rows = $(this).next(".entities-list").find("div");
+  var $rows = $(this).parent().parent().find("li.second-level");
+
+  $rows.show().filter(function() {
+      var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+      return !~text.indexOf(val);
+  }).hide();
+});
+
+</script>
+
+
+
+
+  <!-- Scroll Sidebar Script -->
+
+  
+  
+
+  <script type="text/javascript">
+
+    $(document).ready(function (){
+      $('#sidebar-wrapper').animate({
+          scrollTop: $("#sd_719").offset().top - 100
+      }, 100);
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
